@@ -1,0 +1,282 @@
+{
+  "info": {
+    "name": "Library Management System API",
+    "description": "Postman Collection for student full-stack Library Management System with Django REST Framework",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://127.0.0.1:8001/api",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "Dashboard",
+      "item": [
+        {
+          "name": "Get Dashboard Stats",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/issues/dashboard-stats/",
+              "host": ["{{baseUrl}}"],
+              "path": ["issues", "dashboard-stats", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Books",
+      "item": [
+        {
+          "name": "List Books",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/?search=&category=&availability=",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ""],
+              "query": [
+                { "key": "search", "value": "" },
+                { "key": "category", "value": "" },
+                { "key": "availability", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Book Categories",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/categories/",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "categories", ""]
+            }
+          }
+        },
+        {
+          "name": "Add Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Design Patterns: Elements of Reusable Object-Oriented Software\",\n  \"author\": \"Erich Gamma, Richard Helm, Ralph Johnson, John Vlissides\",\n  \"category\": \"Software Engineering\",\n  \"isbn\": \"978-0201633610\",\n  \"quantity\": 5,\n  \"available_quantity\": 5\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Book by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "4", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Book (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Design Patterns (Updated)\",\n  \"author\": \"Gang of Four\",\n  \"category\": \"Software Engineering\",\n  \"isbn\": \"978-0201633610\",\n  \"quantity\": 6,\n  \"available_quantity\": 6\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/books/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "4", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Book",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/books/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["books", "4", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Members",
+      "item": [
+        {
+          "name": "List Members",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/?search=&department=",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", ""],
+              "query": [
+                { "key": "search", "value": "" },
+                { "key": "department", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Add Member",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohan Mehta\",\n  \"email\": \"rohan.mehta@college.edu\",\n  \"phone\": \"+91 9876501234\",\n  \"department\": \"Information Technology\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/members/",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Member by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "4", ""]
+            }
+          }
+        },
+        {
+          "name": "Update Member (PUT)",
+          "request": {
+            "method": "PUT",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohan Mehta\",\n  \"email\": \"rohan.mehta@college.edu\",\n  \"phone\": \"+91 9876501234\",\n  \"department\": \"Computer Engineering\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/members/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "4", ""]
+            }
+          }
+        },
+        {
+          "name": "Delete Member",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/members/4/",
+              "host": ["{{baseUrl}}"],
+              "path": ["members", "4", ""]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Issues",
+      "item": [
+        {
+          "name": "List Issues",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/issues/?status=&search=",
+              "host": ["{{baseUrl}}"],
+              "path": ["issues", ""],
+              "query": [
+                { "key": "status", "value": "" },
+                { "key": "search", "value": "" }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Issue Book",
+          "request": {
+            "method": "POST",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"book\": 4,\n  \"member\": 4,\n  \"issue_date\": \"2026-09-16\",\n  \"due_date\": \"2026-09-30\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/issues/",
+              "host": ["{{baseUrl}}"],
+              "path": ["issues", ""]
+            }
+          }
+        },
+        {
+          "name": "Get Issue by ID",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/issues/1/",
+              "host": ["{{baseUrl}}"],
+              "path": ["issues", "1", ""]
+            }
+          }
+        },
+        {
+          "name": "Return Book (PATCH)",
+          "request": {
+            "method": "PATCH",
+            "header": [
+              { "key": "Content-Type", "value": "application/json" }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"return_date\": \"2026-09-16\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/issues/1/return/",
+              "host": ["{{baseUrl}}"],
+              "path": ["issues", "1", "return", ""]
+            }
+          }
+        }
+      ]
+    }
+  ]
+}

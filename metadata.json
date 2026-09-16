@@ -1,0 +1,6 @@
+{
+  "name": "Library Management System",
+  "description": "A student-level full-stack CRUD Library Management System with Django REST Framework, SQLite, and React.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
